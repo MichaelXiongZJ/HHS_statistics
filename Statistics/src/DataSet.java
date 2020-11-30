@@ -29,8 +29,48 @@ public class DataSet {
 		return sum/data.length;
 	}
 	
-	public int findModes() {
+	public int[] findModes() {
 		Arrays.sort(data);
+		int list[] = new int [200];
+		int i = 0;
+		for (int a=0; a<data.length;a++) {
+			int count = 0;
+			for(int b=a+1; b<data.length;b++) {
+				if (data[a] == data[b]) {
+					count ++;
+				}
+				else {
+					list[i] = data[a];
+					list[i+1] = count;
+					count = 0;
+					i += 2;
+					a = b;
+				}
+			}
+
+		}
+		int maxCount = 0;
+		for (int a=1;a<list.length;a+=2) {
+			if (list[a]>maxCount) {
+				maxCount = list[a];
+			}
+		}
+		int modes[] = new int[2];
+		int b = 0;
+		for (int a=1;a<list.length;a+=2) {
+			if (list[a] == maxCount) {
+				modes[b] = list[a-1];
+				b++;
+			}
+		}
+		
+		String str = "";
+		for(int a : modes) {
+			str += a+" ";
+		}
+		System.out.println(str);
+		return modes;
+	//	return location;
 		/*
 		int list[];
 		list = new int [2000];
@@ -48,53 +88,7 @@ public class DataSet {
 					max += 2;
 				}
 			}
-		}*/
-		
-		
-
-		
-		int list[];
-		list = new int [2000];
-
-		
-		for (int a=0; a<data.length;a++) {
-			int count = 0;
-			int i = 0;
-			for(int b=a+1; b<data.length;b++) {
-				if (data[a] == data[b]) {
-					count ++;
-				}
-				else {
-					list[i] = data[a];
-					list[i+1] = count;
-					i += 2;
-					a = b;
-				}
-			}
-
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String str = "";
-
-
-		for (int a=0;a<list.length;a++) {
-			str += list[a] + " ";
-		}
-
-		System.out.println(str);
-		return 1;
-	
-		
-		
+		}*/	
 	}
 	
 	public double findStandardDeviation() {

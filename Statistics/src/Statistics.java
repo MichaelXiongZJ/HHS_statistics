@@ -15,7 +15,7 @@ public class Statistics {
 		System.out.println(data.findAverage());
 		
 		System.out.println("Modes: ");
-		System.out.println(data.findModes());
+		data.findModes();
 		
 		System.out.println("StandardDeviation: ");
 		System.out.println(data.findStandardDeviation());
