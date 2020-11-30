@@ -4,21 +4,21 @@ public class Statistics {
 	public static void main(String[] args) {
 		// Create a DataSet object
 		
-		DataSet a = new DataSet();
+		DataSet data = new DataSet();
 		// Call the readData method to get data from the file
-		a.readData("Statistics/data/numbers.txt");
+		data.readData("data/numbers.txt");
 		// Optionally, print the DataSet object to validate that data was read correctly
 		System.out.println("DataSet: ");
-		System.out.println(a.toString());
+		System.out.println(data.toString());
 		// Compute statistics and print the results
 		System.out.println("Average: ");
-		System.out.println(a.findAverage());
+		System.out.println(data.findAverage());
 		
 		System.out.println("Modes: ");
-		System.out.println(a.findModes());
+		System.out.println(data.findModes());
 		
 		System.out.println("StandardDeviation: ");
-		System.out.println(a.findStandardDeviation());
+		System.out.println(data.findStandardDeviation());
 
 
 	}
