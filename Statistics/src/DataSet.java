@@ -67,7 +67,6 @@ public class DataSet {
 				modeCount++;
 			}
 		}
-		
 		return Arrays.copyOfRange(modes, 0, modeCount);
 	}
 	
