@@ -20,10 +20,11 @@ public class DataSet {
 	
 	
 	public String toString() {
-		String str = "";
+		String str = "[";
 		for(int a=0;a<numValues;a++) {
 			str += data[a]+", ";
 		}
+		str += "]";
 		return str;
 	}
 	
@@ -78,6 +79,28 @@ public class DataSet {
 		}
 		return Math.sqrt(sumOfSq/(numValues-1));
 	}
+	
+	public void insert(int val, int i) {
+		numValues++;
+		for (int a=numValues;a>i;a--){
+		    data[a] = data[a-1];
+		}
+		data[i] = val;
+	}
+	
+	public void removeVal(int val) {
+		for (int a=0; a<numValues;a++) {
+			if(data[a] == val) {
+				for(int i=a;i<numValues;i++) {
+					data[i] = data[i+1];
+				}
+				numValues--;
+				a--;
+			}
+		}
+	}
+	
+	
 	
 	
 }
