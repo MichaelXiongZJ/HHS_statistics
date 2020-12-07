@@ -80,6 +80,7 @@ public class DataSet {
 		return Math.sqrt(sumOfSq/(numValues-1));
 	}
 	
+	
 	public void insert(int val, int i) {
 		numValues++;
 		for (int a=numValues;a>i;a--){
@@ -87,6 +88,7 @@ public class DataSet {
 		}
 		data[i] = val;
 	}
+	
 	
 	public void removeVal(int val) {
 		for (int a=0; a<numValues;a++) {
@@ -99,8 +101,4 @@ public class DataSet {
 			}
 		}
 	}
-	
-	
-	
-	
 }

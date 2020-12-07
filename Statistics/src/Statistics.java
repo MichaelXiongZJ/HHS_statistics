@@ -29,12 +29,12 @@ public class Statistics {
 		
 		System.out.println("StandardDeviation: ");
 		System.out.println(data.findStandardDeviation());
-		/*
+		
 		System.out.println("Add 100 at data[0] and data[2]: ");
 		data.insert(100, 0);
 		data.insert(100, 2);
 		System.out.println(data.toString());
-		
+		/*
 		System.out.println("remove all 0: ");
 		data.removeVal(0);
 		System.out.println(data.toString());*/
