@@ -28,7 +28,7 @@ public class ArrayReader {
 	 * @param fill The array to fill with data from the file. Must have a length equal to or greater than the number of integers in the file.
 	 * @return The number of integers that were read from the file (could be less than the length of the input array).
 	 */
-	public int fillArray(int[] fill) {
+	public int fillArray(DataSet fill) {
 
 		FileReader reader = null;
 		int i = 0;
@@ -38,7 +38,7 @@ public class ArrayReader {
 				while (in.hasNext()) {
 					String input = in.next();
 					int value = Integer.parseInt(input);
-					fill[i] = value;
+					fill.add(value);
 					i++;
 				}
     	} catch (IOException ex) {
@@ -48,7 +48,7 @@ public class ArrayReader {
 			System.out.println("File is in the wrong format.");
 			return 0;
 		} catch (ArrayIndexOutOfBoundsException ex) {
-			System.out.println("Array passed in was not large enough to hold the data. Length: " + fill.length);
+			System.out.println("Array passed in was not large enough to hold the data. Length: ");
 			return 0;
 		} finally {
 			try {

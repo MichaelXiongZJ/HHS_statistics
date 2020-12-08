@@ -13,9 +13,13 @@ public class DataSet {
 	}
 	
 	//METHODS
+	private void resize() {
+		
+	}
+	
 	public void readData(String filename) {
 		ArrayReader reader = new ArrayReader(filename);
-		numValues = reader.fillArray(data);
+		numValues = reader.fillArray(this);
 	}
 	
 	
@@ -90,7 +94,7 @@ public class DataSet {
 	}
 	
 	
-	public void removeVal(int val) {
+	public int removeVal(int val) {
 		for (int a=0; a<numValues;a++) {
 			if(data[a] == val) {
 				for(int i=a;i<numValues;i++) {
@@ -100,5 +104,21 @@ public class DataSet {
 				a--;
 			}
 		}
+		return numValues;
 	}
+	
+	public void add(int x) {
+		data[numValues] = x;
+		numValues++;
+	}
+	
+	public int get(int x) {
+		return data[x];
+	}
+	
+	public void set(int x, int val) {
+		data[x] = val;
+	}
+	
+
 }
