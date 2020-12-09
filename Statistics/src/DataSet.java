@@ -4,7 +4,7 @@ public class DataSet {
 
 	//FILEDS
 	private int[] data;
-	private final int MAX_FILE_SIZE = 10000;
+	private final int MAX_FILE_SIZE = 10;
 	private int numValues;
 	
 	//CONSTRUCTOR
@@ -13,16 +13,12 @@ public class DataSet {
 	}
 	
 	//METHODS
-	private void resize() {
-		
-	}
-	
 	public void readData(String filename) {
 		ArrayReader reader = new ArrayReader(filename);
 		numValues = reader.fillArray(this);
 	}
 	
-	
+
 	public String toString() {
 		String str = "[";
 		for(int a=0;a<numValues;a++) {
@@ -86,6 +82,7 @@ public class DataSet {
 	
 	
 	public void insert(int val, int i) {
+		resize();
 		numValues++;
 		for (int a=numValues;a>i;a--){
 		    data[a] = data[a-1];
@@ -107,18 +104,43 @@ public class DataSet {
 		return numValues;
 	}
 	
+	
 	public void add(int x) {
+		resize();
 		data[numValues] = x;
 		numValues++;
 	}
+	
 	
 	public int get(int x) {
 		return data[x];
 	}
 	
+	
 	public void set(int x, int val) {
 		data[x] = val;
 	}
 	
-
+	
+	private void resize() {
+		int size1 = 100, size2 = 500, size3 = 1000, size4 = 5000, size5 = 10000;
+		int[] temp = new int[data.length];
+		for(int a=0; a<temp.length; a++) {
+			temp[a] = data[a];
+		}
+		if(numValues < 100) {
+			data = new int[size1];
+		}else if(numValues < 500) {
+			data = new int[size2];
+		}else if(numValues < 1000) {
+			data = new int[size3];
+		}else if(numValues < 5000) {
+			data = new int[size4];
+		}else {
+			data = new int[size5];
+		}
+		for(int a=0; a<temp.length; a++) {
+			data[a] = temp[a];
+		}
+	}
 }
