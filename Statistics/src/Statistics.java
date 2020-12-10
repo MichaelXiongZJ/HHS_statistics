@@ -38,6 +38,12 @@ public class Statistics {
 		System.out.println("remove all 0: ");
 		data.removeVal(0);
 		System.out.println(data.toString());*/
+		
+		System.out.println("Length of the array: ");
+		System.out.println(data.getLength());
+		
+		System.out.println("NumValue: ");
+		System.out.println(data.getNumValues());
 	}
 
 }

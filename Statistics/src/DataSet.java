@@ -4,12 +4,12 @@ public class DataSet {
 
 	//FILEDS
 	private int[] data;
-	private final int MAX_FILE_SIZE = 10;
+	private final int INITIAL_FILE_SIZE = 10;
 	private int numValues;
 	
 	//CONSTRUCTOR
 	public DataSet() {
-		data = new int[MAX_FILE_SIZE];
+		data = new int[INITIAL_FILE_SIZE];
 	}
 	
 	//METHODS
@@ -142,5 +142,24 @@ public class DataSet {
 		for(int a=0; a<temp.length; a++) {
 			data[a] = temp[a];
 		}
+	}
+		/*
+		int[] temp = new int[data.length];
+		for(int a=0; a<temp.length; a++) {
+			temp[a] = data[a];
+		}
+		if(INITIAL_FILE_SIZE < numValues) {
+			data = new int[numValues];
+		}
+		for(int a=0; a<temp.length; a++) {
+			data[a] = temp[a];
+		}
+	}*/
+	
+	public int getLength() {
+		return data.length;
+	}
+	public int getNumValues() {
+		return numValues;
 	}
 }
